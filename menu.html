@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <section class="atm-activity ml-[40px] mt-[50px]">
+      <h3>Simple ATM Transactions</h3>
+      <br />
+      <hr />
+      <p>For Activity 1</p>
+      <br />
+      <label class="">Deposit:</label>
+      <input
+        class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        placeholder=""
+        id="atmDeposit"
+      />
+      <label class="ml-[20px]">Withdraw:</label>
+      <input
+        class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        placeholder=""
+        id="atmWithdraw"
+      />
+      <br />
+
+      <button
+        class="bg-blue-400 text-white rounded-md p-1 ml-[10px] w-[200px] mt-[13px] hover:bg-blue-800"
+        id="btnDeposit"
+      >
+        Deposit
+      </button>
+      <button
+        class="bg-blue-400 text-white rounded-md p-1 ml-[10px] w-[200px] mt-[13px] hover:bg-blue-800"
+        id="btnWithdraw"
+      >
+        Withdraw
+      </button>
+      <button
+        class="bg-rose-500 text-white rounded-md p-1 ml-[10px] w-[200px] mt-[13px] hover:bg-rose-800"
+        id="exit"
+        onclick="exit()"
+      >
+        Exit
+      </button>
+
+      <h4 class="mt-[20px] font-bold">BALANCE BELOW</h4>
+      <div class="row rot-output-div">
+        <p id="balance" class="font-bold text-2xl">₱</p>
+        <p id="recordTransactions"></p>
+      </div>
+    </section>
+
+    <script src="problem1.js"></script>
+  </body>
+</html>
