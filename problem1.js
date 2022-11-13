@@ -1,7 +1,7 @@
 let btnDeposit = document.querySelector('#btnDeposit');
 let btnWithdraw = document.querySelector('#btnWithdraw');
 let balance = document.querySelector('#balance');
-let recordTransactions = document.querySelector('#recordTransactions');
+let recordTransaction = document.querySelector('#recordTransactions');
 
 var today = new Date();
 var date =
@@ -58,22 +58,22 @@ function demoAtmInitiliaze() {
   balance.innerText = `Account Balance :  ₱${atm1.checkBalance()}`;
 }
 
-function recordTransactionsFunc() {
-  recordTransactions.innerText = `${atm1.printTransactions()}`;
+function recordTransactions() {
+  recordTransaction.innerText = `${atm1.printTransactions()}`;
 }
 
-function atmFuncDeposit() {
+function deposit() {
   let depositAmount = parseInt(document.querySelector('#atmDeposit').value);
   atm1.deposit(depositAmount);
   balance.innerText = `Account Balance : ₱${atm1.checkBalance()}`;
-  recordTransactionsFunc();
+  recordTransactions();
 }
 
-function atmFuncWithdraw() {
+function withdraw() {
   let withdrawAmount = parseInt(document.querySelector('#atmWithdraw').value);
   atm1.withdraw(withdrawAmount);
   balance.innerText = `Account Balance : ₱${atm1.checkBalance()}`;
-  recordTransactionsFunc();
+  recordTransactions();
 }
 
 function exit() {
@@ -98,5 +98,5 @@ function validate() {
 var atm1 = new SIMPLE_ATM(0);
 demoAtmInitiliaze();
 
-btnDeposit.addEventListener('click', atmFuncDeposit);
-btnWithdraw.addEventListener('click', atmFuncWithdraw);
+btnDeposit.addEventListener('click', deposit);
+btnWithdraw.addEventListener('click', withdraw);
