@@ -14,6 +14,25 @@ var time = today.toLocaleString('en-US', {
   second: 'numeric',
 });
 
+function exit() {
+  window.location.href = 'index.html';
+}
+
+function validate() {
+  let valueCard = document.getElementById('loginCard').value;
+  let cardPassword = '12345';
+  let message;
+  if (valueCard != cardPassword) {
+    message = 'Wrong Password Please Try Again';
+  } else if (valueCard === cardPassword) {
+    window.location.href = 'menu.html';
+    message = '';
+  } else {
+    message = '';
+  }
+  document.getElementById('message').innerHTML = message;
+}
+
 class SIMPLE_ATM {
   constructor(balance = 0) {
     this.balance = balance;
@@ -55,47 +74,28 @@ class SIMPLE_ATM {
   }
 }
 function demoAtmInitiliaze() {
-  balance.innerText = `Account Balance :  ₱${atm1.checkBalance()}`;
+  balance.innerText = `Account Balance :  ₱${atm.checkBalance()}`;
 }
 
 function recordTransactions() {
-  recordTransaction.innerText = `${atm1.printTransactions()}`;
+  recordTransaction.innerText = `${atm.printTransactions()}`;
 }
 
 function deposit() {
   let depositAmount = parseInt(document.querySelector('#atmDeposit').value);
-  atm1.deposit(depositAmount);
-  balance.innerText = `Account Balance : ₱${atm1.checkBalance()}`;
+  atm.deposit(depositAmount);
+  balance.innerText = `Account Balance : ₱${atm.checkBalance()}`;
   recordTransactions();
 }
 
 function withdraw() {
   let withdrawAmount = parseInt(document.querySelector('#atmWithdraw').value);
-  atm1.withdraw(withdrawAmount);
-  balance.innerText = `Account Balance : ₱${atm1.checkBalance()}`;
+  atm.withdraw(withdrawAmount);
+  balance.innerText = `Account Balance : ₱${atm.checkBalance()}`;
   recordTransactions();
 }
 
-function exit() {
-  window.location.href = 'index.html';
-}
-
-function validate() {
-  let valueCard = document.getElementById('loginCard').value;
-  let cardPassword = '12345';
-  let message;
-  if (valueCard != cardPassword) {
-    message = 'Wrong Password Please Try Again';
-  } else if (valueCard === cardPassword) {
-    window.location.href = 'menu.html';
-    message = '';
-  } else {
-    message = '';
-  }
-  document.getElementById('message').innerHTML = message;
-}
-
-var atm1 = new SIMPLE_ATM(0);
+var atm = new SIMPLE_ATM(0);
 demoAtmInitiliaze();
 
 btnDeposit.addEventListener('click', deposit);
